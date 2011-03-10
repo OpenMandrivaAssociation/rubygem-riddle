@@ -1,7 +1,7 @@
 %define oname riddle
 
 Name:       rubygem-%{oname}
-Version:    1.1.0
+Version:    1.2.2
 Release:    %mkrel 1
 Summary:    An API for Sphinx, written in and for Ruby
 Group:      Development/Ruby
