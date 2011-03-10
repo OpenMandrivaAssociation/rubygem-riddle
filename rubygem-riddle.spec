@@ -1,44 +1,52 @@
-%define oname riddle
+# Generated from riddle-1.2.2.gem by gem2rpm5 -*- rpm-spec -*-          
+%define	rbname	riddle
 
-Name:       rubygem-%{oname}
-Version:    1.2.2
-Release:    %mkrel 1
-Summary:    An API for Sphinx, written in and for Ruby
-Group:      Development/Ruby
-License:    MIT
-URL:        http://riddle.freelancing-gods.com
-Source0:    %{oname}-%{version}.gem
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root
-Requires:   rubygems
-Suggests:   rubygem(rspec)
-Suggests:   rubygem(yard)
-BuildRequires: rubygems
-BuildArch:  noarch
-Provides:   rubygem(%{oname}) = %{version}
+Summary:	An API for Sphinx, written in and for Ruby
+Name:		rubygem-%{rbname}
+
+Version:	1.2.2
+Release:	1
+Group:		Development/Ruby
+License:	MIT
+URL:		http://riddle.freelancing-gods.com
+Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
+BuildRequires:	rubygems 
+BuildArch:	noarch
 
 %description
 A Ruby API and configuration helper for the Sphinx search service.
 
+%package	doc
+Summary:	Documentation for %{name}
+Group:		Books/Computer books
+Requires:	%{name} = %{EVRD}
+
+%description	doc
+Documents, RDoc & RI documentation for %{name}.
 
 %prep
+%setup -q
 
 %build
+%gem_build -f spec
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}%{ruby_gemdir}
-gem install --local --install-dir %{buildroot}%{ruby_gemdir} \
-            --force --rdoc %{SOURCE0}
+%gem_install
 
 %clean
 rm -rf %{buildroot}
 
 %files
-%defattr(-, root, root, -)
-%dir %{ruby_gemdir}/gems/%{oname}-%{version}/
-%{ruby_gemdir}/gems/%{oname}-%{version}/lib/
-%{ruby_gemdir}/gems/%{oname}-%{version}/spec/
-%doc %{ruby_gemdir}/doc/%{oname}-%{version}
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/README.textile
-%{ruby_gemdir}/cache/%{oname}-%{version}.gem
-%{ruby_gemdir}/specifications/%{oname}-%{version}.gemspec
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/riddle
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/riddle/*
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/spec
+%{ruby_gemdir}/gems/%{rbname}-%{version}/spec/*
+%{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
+
+%files doc
+%doc %{ruby_gemdir}/gems/%{rbname}-%{version}/*.textile
+%doc %{ruby_gemdir}/doc/%{rbname}-%{version}
