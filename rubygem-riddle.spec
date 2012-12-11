@@ -50,3 +50,15 @@ rm -rf %{buildroot}
 %files doc
 %doc %{ruby_gemdir}/gems/%{rbname}-%{version}/*.textile
 %doc %{ruby_gemdir}/doc/%{rbname}-%{version}
+
+
+%changelog
+* Thu Mar 10 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.2.2-1
++ Revision: 643539
+- generate spec with gem2rpm5
+- new release: 1.2.2
+
+* Mon Dec 20 2010 Rémy Clouard <shikamaru@mandriva.org> 1.1.0-1mdv2011.0
++ Revision: 623545
+- import rubygem-riddle
+
