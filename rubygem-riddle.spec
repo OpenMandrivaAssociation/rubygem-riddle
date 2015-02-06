@@ -5,7 +5,7 @@ Summary:	An API for Sphinx, written in and for Ruby
 Name:		rubygem-%{rbname}
 
 Version:	1.2.2
-Release:	1
+Release:	2
 Group:		Development/Ruby
 License:	MIT
 URL:		http://riddle.freelancing-gods.com
