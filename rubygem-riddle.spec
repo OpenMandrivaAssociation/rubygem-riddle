@@ -8,7 +8,7 @@ Version:	1.2.2
 Release:	2
 Group:		Development/Ruby
 License:	MIT
-URL:		http://riddle.freelancing-gods.com
+URL:		https://riddle.freelancing-gods.com
 Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
 BuildRequires:	rubygems 
 BuildArch:	noarch
